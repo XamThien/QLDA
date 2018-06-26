@@ -50,7 +50,27 @@ public class MuonTraDAO {
 	        }
 	        return cl;
 	    }
-	 
+	 public MuonTra getMuonTraByMSSV(String mssv) {
+		 MuonTra cl = null;
+	       try
+	       {
+	    	    Configuration configuration =  new Configuration().configure();
+	        	SessionFactory sessionFactory = configuration.buildSessionFactory();
+	        	Session session = sessionFactory.openSession();
+	        	
+	        	//Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		        Transaction transaction = session.beginTransaction();
+		        String hql ="from MuonTra where mssv='"+mssv+"' and status=1";
+		        Query que = session.createQuery(hql);
+		        cl = (MuonTra) que.uniqueResult();
+		        transaction.commit();
+		        session.close();
+	       }
+	       catch  (HibernateException e) {
+	    	   e.printStackTrace();
+	        }
+	        return cl;
+	    }
 	 public void insertMuonTra(MuonTra sp){
 		 	Configuration configuration =  new Configuration().configure();
 		 	SessionFactory sessionFactory = configuration.buildSessionFactory();
@@ -100,5 +120,7 @@ public class MuonTraDAO {
 //		 }
 		 //NhanVien nv = new NhanVienDAO().getNhanVienByName("huy");
 		 //System.out.println(nv.getName());
+		 MuonTra mt = new MuonTraDAO().getMuonTraByMSSV("HUy");
+		 System.out.println(mt.getNameSv());
 	}
 }

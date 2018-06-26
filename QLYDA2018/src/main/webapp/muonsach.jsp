@@ -79,7 +79,7 @@
 								                    <label >MSSV :</label>
 								                    <div class="form-group">
 								                        <div class="form-group" >
-								                            <input type="text" id="mssv" class="form-control" name="mssv" placeholder="MSSV" required="required" />
+								                            <input type="text" id="mssv" class="form-control" name="mssv" placeholder="MSSV" value="${mssv}" required="required" />
 								                        </div>
 								                    </div>
 								                </div>

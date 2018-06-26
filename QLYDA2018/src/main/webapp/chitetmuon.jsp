@@ -235,7 +235,7 @@
 					                <label >Số lượng :</label>
 					                <div class="form-group ">
 				                        <div class="form-group code" >
-				                            <input id="sl" type="number" class="form-control" name="sl" placeholder="Số lượng" />
+				                            <input id="sl" type="number" class="form-control" min="0" name="sl" placeholder="Số lượng" />
 				                            
 				                        </div>
 				                    </div>

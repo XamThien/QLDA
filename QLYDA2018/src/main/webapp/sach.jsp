@@ -21,13 +21,13 @@
 					<!-- ----------------------------------------------->
 					<div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
-	              	<h2><strong>Quản lý thư mục sách</strong></h2>
+	              	<h2><strong>Quản lý sách</strong></h2>
 	              	<hr/>
 	                <span style="color:red"><i>${msg}</i></span>
 	                <!-- show table-->
 	                <div class="x_panel">
 		                  <div class="x_title">
-		                    <h2>Danh sách thư mục sách</h2>
+		                    <h2>Danh sách sách</h2>
 		                    
 		                    <div class="clearfix"></div>
 		                  </div>
@@ -113,7 +113,7 @@
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title" id="myModalLabel">Thêm mới thể loại sách: </h4>
+                          <h4 class="modal-title" id="myModalLabel">Thêm mới sách: </h4>
                         </div>
                         <form action="actionsach?action=add" method="post">
                         <div class="modal-body">
@@ -211,7 +211,7 @@
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title" id="myModalLabel">Sửa thông tin thể loại sách :</h4>
+                          <h4 class="modal-title" id="myModalLabel">Sửa thông tin sách :</h4>
                         </div>
                         <form action="actionsach?action=edit" method="post">
                         <div class="modal-body">

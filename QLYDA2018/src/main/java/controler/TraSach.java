@@ -83,7 +83,7 @@ public class TraSach extends HttpServlet {
 				
 				int sid = Integer.parseInt(request.getParameter("sid"));
 				int sl = Integer.parseInt(request.getParameter("sl"));
-				if(sl<0)
+				if(sl<=0)
 				{
 					message = "Số lượng sách phải là số nguyên dương.";
 	            	RequestDispatcher xxx = request.getRequestDispatcher("chitetmuon.jsp?id="+pid);

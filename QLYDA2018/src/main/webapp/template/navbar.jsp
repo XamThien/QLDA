@@ -29,7 +29,7 @@
 	                  </li>
 	                  <li><a><i class="fa fa-bar-chart-o"></i> Quản lý mượn trả sách <span class="fa fa-chevron-down"></span></a>
 	                    <ul class="nav child_menu">
-	                      <li><a href="muonsach.jsp">Mượn sách</a></li>
+	                      <li><a href="check.jsp">Mượn sách</a></li>
 	                      <li><a href="danhsachmuon.jsp">Trả sách</a></li>
 	                      
 	                    </ul>
