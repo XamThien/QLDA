@@ -19,27 +19,12 @@
 				
 				<div class="right_col" role="main">
 					<!-- ----------------------------------------------->
-					<!-- đay là phần nội dung -->
-					<h2>Đây là nội dung trang chủ phần mền quản lý thư viên trường đại học xây dựng.</h2>
-					<br/>
-					<h2>Đây là nội dung trang chủ phần mền quản lý thư viên trường đại học xây dựng.</h2>
-					<br/>
-					<h2>Đây là nội dung trang chủ phần mền quản lý thư viên trường đại học xây dựng.</h2>
-					<br/>
-					
-					<h2>Đây là nội dung trang chủ phần mền quản lý thư viên trường đại học xây dựng.</h2>
-					<br/><h2>Đây là nội dung trang chủ phần mền quản lý thư viên trường đại học xây dựng.</h2>
-					<br/>
-					<h2>Đây là nội dung trang chủ phần mền quản lý thư viên trường đại học xây dựng.</h2>
-					<br/>
-					
-					<h2>Đây là nội dung trang chủ phần mền quản lý thư viên trường đại học xây dựng.</h2>
-					<br/><h2>Đây là nội dung trang chủ phần mền quản lý thư viên trường đại học xây dựng.</h2>
-					<br/>
-					<h2>Đây là nội dung trang chủ phần mền quản lý thư viên trường đại học xây dựng.</h2>
-					<br/>
-					<h2>Đây là nội dung trang chủ phần mền quản lý thư viên trường đại học xây dựng.</h2>
-					<br/>
+					<div class="row">
+						<!-- đay là phần nội dung -->
+						<h2>Đây là nội dung trang chủ phần mền quản lý thư viên trường đại học xây dựng.</h2>
+						<br/>
+						<img src="resources/production/images/photo.jpg" style="width: 1105px;" alt="Ảnh thư viện">
+					</div>
 					<!-- ----------------------------------------------->
 			    </div>
 			    

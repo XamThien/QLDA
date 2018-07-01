@@ -44,6 +44,7 @@ public class ActionSach extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
     	response.setCharacterEncoding("utf-8");
     	
@@ -99,7 +100,7 @@ public class ActionSach extends HttpServlet {
 				String tg = request.getParameter("tacgia");
 				int nam = Integer.parseInt(request.getParameter("namxb"));
 				String nxb = request.getParameter("nxb");
-				
+				int stt = Integer.parseInt(request.getParameter("status"));
 				TheLoai tll = new TheLoaiDAO().getTheLoaiByID(tl);
 				Sach book = db.getSachByID(Integer.parseInt(id));
 				book.setName(ten);
@@ -109,12 +110,13 @@ public class ActionSach extends HttpServlet {
 				book.setTacGia(tg);
 				book.setNamXuatBan(nam);
 				book.setNhaXuatBan(nxb);
+				book.setTrangThai((stt==1)? true:false);
 				
 	            try
 	            {
 	            	db.updateSach(book);
 	            	
-	            	message = "Sửa thông tin sách thành công.";
+	            	message = "Sua thong tin sach thanh cong.";
 	            	RequestDispatcher xxx = request.getRequestDispatcher("sach.jsp");
 					request.setAttribute("msg", message );
 					xxx.forward(request, response);
@@ -122,7 +124,7 @@ public class ActionSach extends HttpServlet {
 	            }
 	            catch(Exception e)
 				{
-	            	message = "Sửa thông tin sách không thành công 1."+e;
+	            	message = "Sua thong tin sach khong thanh cong."+e;
 	            	RequestDispatcher xxx = request.getRequestDispatcher("sach.jsp");
 					request.setAttribute("msg", message );
 					xxx.forward(request, response);
@@ -130,7 +132,7 @@ public class ActionSach extends HttpServlet {
 			}
 			catch(Exception e)
 			{
-				message = "Sửa thông tin sách không thành công 2."+e;
+				message = "Sua thong tin sach khong thanh cong."+e;
 	        	RequestDispatcher xxx = request.getRequestDispatcher("sach.jsp");
 				request.setAttribute("msg", message );
 				xxx.forward(request, response);
@@ -155,7 +157,7 @@ public class ActionSach extends HttpServlet {
 	            {
 	            	db.insertSach(book);
 	            	
-	            	message = "Thêm sách mới thành công.";
+	            	message = "Them sach thanh cong.";
 	            	RequestDispatcher xxx = request.getRequestDispatcher("sach.jsp");
 					request.setAttribute("msg", message );
 					xxx.forward(request, response);
@@ -163,7 +165,7 @@ public class ActionSach extends HttpServlet {
 	            }
 	            catch(Exception e)
 				{
-	            	message = "Thêm sách mới không thành công.";
+	            	message = "Them sach khong thanh cong.";
 	            	RequestDispatcher xxx = request.getRequestDispatcher("sach.jsp");
 					request.setAttribute("msg", message );
 					xxx.forward(request, response);
@@ -171,7 +173,7 @@ public class ActionSach extends HttpServlet {
 			}
 			catch(Exception e)
 			{
-				message = "Thêm sách mới không thành công.";
+				message = "Them sach khong thanh cong.";
 	        	RequestDispatcher xxx = request.getRequestDispatcher("sach.jsp");
 				request.setAttribute("msg", message );
 				xxx.forward(request, response);

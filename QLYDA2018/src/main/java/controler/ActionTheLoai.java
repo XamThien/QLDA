@@ -40,6 +40,7 @@ public class ActionTheLoai extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
     	response.setCharacterEncoding("utf-8");
     	
@@ -90,18 +91,18 @@ public class ActionTheLoai extends HttpServlet {
 				String id = request.getParameter("id");
 				String ten = request.getParameter("tentheloai");
 				String gc = request.getParameter("ghichu");
-				
+				int stt = Integer.parseInt(request.getParameter("status"));
 				
 				TheLoai tll = db.getTheLoaiByID(Integer.parseInt(id));
 				tll.setName(ten);
 				tll.setNote(gc);
-				
+				tll.setStatus((stt==1)? true:false);
 	            
 	            try
 	            {
 	            	db.updateTheLoai(tll);
 	            	
-	            	message = "Sửa thể loại sách thành công.";
+	            	message = "Sua the loai sach thanh cong.";
 	            	RequestDispatcher xxx = request.getRequestDispatcher("danhmucsach.jsp");
 					request.setAttribute("msg", message );
 					xxx.forward(request, response);
@@ -109,7 +110,7 @@ public class ActionTheLoai extends HttpServlet {
 	            }
 	            catch(Exception e)
 				{
-	            	message = "Sửa thể loại sách không thành công 1."+e;
+	            	message = "Sua the loai sach khong thanh cong."+e;
 	            	RequestDispatcher xxx = request.getRequestDispatcher("danhmucsach.jsp");
 					request.setAttribute("msg", message );
 					xxx.forward(request, response);
@@ -117,7 +118,7 @@ public class ActionTheLoai extends HttpServlet {
 			}
 			catch(Exception e)
 			{
-				message = "Sửa thể loại sách không thành công 2."+e;
+				message = "Sua the loai sach khong thanh cong."+e;
 	        	RequestDispatcher xxx = request.getRequestDispatcher("danhmucsach.jsp");
 				request.setAttribute("msg", message );
 				xxx.forward(request, response);
@@ -136,7 +137,7 @@ public class ActionTheLoai extends HttpServlet {
 	            {
 	            	db.insertTheLoai(tl);
 	            	
-	            	message = "Thêm thể loại sách thành công.";
+	            	message = "Them the loai sach thanh cong.";
 	            	RequestDispatcher xxx = request.getRequestDispatcher("danhmucsach.jsp");
 					request.setAttribute("msg", message );
 					xxx.forward(request, response);
@@ -144,7 +145,7 @@ public class ActionTheLoai extends HttpServlet {
 	            }
 	            catch(Exception e)
 				{
-	            	message = "Thêm thể loại sách không thành công.";
+	            	message = "Them the loai sach khong thanh cong";
 	            	RequestDispatcher xxx = request.getRequestDispatcher("danhmucsach.jsp");
 					request.setAttribute("msg", message );
 					xxx.forward(request, response);
@@ -152,7 +153,7 @@ public class ActionTheLoai extends HttpServlet {
 			}
 			catch(Exception e)
 			{
-				message = "Thêm thể loại sách không thành công.";
+				message = "Them the loai sach khong thanh cong.";
 	        	RequestDispatcher xxx = request.getRequestDispatcher("danhmucsach.jsp");
 				request.setAttribute("msg", message );
 				xxx.forward(request, response);

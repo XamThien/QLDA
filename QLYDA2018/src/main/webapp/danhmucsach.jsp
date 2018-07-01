@@ -57,13 +57,13 @@
 										  %>
 										 
 										  	
-										  <tr>
+										  <tr ondblclick="pass_view('<%=tl.getName()%>','<%=tl.getNote()%>');">
 										    <td><%=tl.getId() %></td>
 										    <td><%=tl.getName() %></td>
 										    <td><%=tl.getNote() %></td>
 										    <td>
-										    	<a href="#" data-toggle="modal" data-target="#modal-edit" class="btn btn-link" onclick="pass_update(<%=tl.getId()%>,'<%=tl.getName()%>','<%=tl.getNote()%>');"> <i class="fa fa-edit"></i> Sửa</a>
-										    	<a href="#" data-toggle="modal" data-target="#modal-delete" class="btn btn-link" onclick="pass_del(<%=tl.getId()%>);"> <i class="fa fa-trash-o" ></i> Xóa</a>
+										    	<a href="#" data-toggle="modal" data-target="#modal-edit" class="btn btn-link" onclick="pass_update(<%=tl.getId()%>,'<%=tl.getName()%>','<%=tl.getNote()%>','<%=tl.getStatus()%>');"> <i class="fa fa-edit"></i> Sửa</a>
+										    	
 										    	
 										    </td>
 										  </tr>
@@ -92,6 +92,49 @@
 				 </div>
               </div>
             </div>
+            <!-- View modal -->
+           <div class="modal fade bs-example-modal-lg" id="modal-view" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-delete">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Thông tin thể loại sách: </h4>
+                        </div>
+                        
+                        <div class="modal-body">
+                          	 <div class='col-sm-12'>
+				                   <label >Tên thể loại :</label>
+				                    <div class="form-group" >
+				                        <div class="form-group" >
+				                            <input type="text" id="vname" class="form-control" name="tentheloai" placeholder="Tên thể loại" />
+				                            
+				                        </div>
+				                    </div>
+				                </div>
+			                 <div class='col-sm-12'>
+				                    <label >Ghi chú :</label>
+				                    <div class="form-group">
+				                        <div class="form-group" >
+				                            <input type="text" id="vmota" class="form-control" name="ghichu" placeholder="Ghi chú" />
+				                            
+				                        </div>
+				                    </div>
+				                </div>
+			                 
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                         
+                        </div>
+                    	
+                      </div>
+                    </div>
+            </div>
+			<!--  View  modal -->
             <!-- Add new modal -->
            <div class="modal fade bs-example-modal-lg" id="modal-add" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-delete">
@@ -161,7 +204,18 @@
 				                        </div>
 				                    </div>
 				                </div>
-			                 
+			                 <div class='col-sm-12'>
+				                   <label >Trạng thái :</label>
+				                    <div class="form-group ">
+				                        <div class="form-group code" >
+				                            <input id="ename" class="form-control" name="tentheloai" placeholder="Tên thể loại" />
+				                            <select id="estatus" class="form-control" name="status">
+				                            	<option value="1">Active</option>
+  												<option value="0">Inactive</option>
+				                            </select>
+				                        </div>
+				                    </div>
+				                </div>
 			                 <div class='col-sm-12'>
 				                <div class="form-group status">
 					                <label >Ghi chú :</label>
@@ -221,12 +275,30 @@
 			    	
 			    	document.getElementById("txtid").value = id;
 			    };
-			    function pass_update(id,name,note) {
+			    function pass_update(id,name,note,stt) {
 			    	document.getElementById("eid").value = id; 
 			    	document.getElementById("ename").value = name; 
 			    	
-			    	document.getElementById("enote").value = note; 
+			    	document.getElementById("enote").value = note;
+			    	var sttx ;
+			    	if(stt=="true")
+				    	{
+				    		sttx=1;
+				    	}
+			    	else
+				    	{
+							sttx =0;
+				    	}
+			    	document.getElementById("estatus").value =sttx;
 			    	
+			    };
+			    function pass_view(name,note) {
+			    	
+			    	document.getElementById("vname").value = name; 
+			    	
+			    	document.getElementById("vmota").value = note; 
+			    	//document.getElementById("modal-view").modal("show");
+			    	$("#modal-view").modal();
 			    };
 			    
 			</script>

@@ -43,11 +43,10 @@
 										  		<th>Mã sách</th>
 										  		<th>Tên sách</th>
 										  		<th>Thể loại</th>
-										  		<th>Số trang</th>
+										  		
 										  		<th>Số lượng</th>
 										  		<th>Tác giả</th>
-										  		<th>Năm xuất bản</th>
-										  		<th>Nhà xuẩn bản</th>
+										  		
 										  		  <th><a href="#" style="color: white;" data-toggle="modal" data-target="#modal-add"  > <i class="fa fa-plus" ></i> Thêm mới</a></th> 
 										  		
 										  	</tr>
@@ -65,18 +64,17 @@
 										  %>
 										 
 										  	
-										  <tr>
+										  <tr ondblclick="pass_view('<%=bk.getName()%>','<%=bk.getTheLoai().getName()%>','<%=bk.getTacGia()%>',<%=bk.getSoTrang()%>,<%=bk.getSoLuong()%>,<%=bk.getNamXuatBan()%>,'<%=bk.getNhaXuatBan()%>');">
 										    <td><%=bk.getId() %></td>
 										    <td><%=bk.getName() %></td>
 										    <td><%=bk.getTheLoai().getName() %></td>
-										    <td><%=bk.getSoTrang() %></td>
+										   
 										    <td><%=bk.getSoLuong() %></td>
 										    <td><%=bk.getTacGia() %></td>
-										    <td><%=bk.getNamXuatBan() %></td>
-										    <td><%=bk.getNhaXuatBan() %></td>
+										    
 										    <td>
 										    	<a href="#" data-toggle="modal" data-target="#modal-edit" class="btn btn-link" onclick="pass_update(<%=bk.getId()%>,'<%=bk.getName()%>',<%=bk.getTheLoai().getId()%>,'<%=bk.getTacGia()%>',<%=bk.getSoTrang()%>,<%=bk.getSoLuong()%>,<%=bk.getNamXuatBan()%>,'<%=bk.getNhaXuatBan()%>');"> <i class="fa fa-edit"></i> Sửa</a>
-										    	<a href="#" data-toggle="modal" data-target="#modal-delete" class="btn btn-link" onclick="pass_del(<%=bk.getId()%>);"> <i class="fa fa-trash-o" ></i> Xóa</a>
+										    	
 										    	
 										    </td>
 										  </tr>
@@ -289,6 +287,18 @@
 				                        </div>
 				                    </div>
 				                </div>
+				                <div class='col-sm-12'>
+				                   <label >Trạng thái :</label>
+				                    <div class="form-group ">
+				                        <div class="form-group code" >
+				                            <input id="ename" class="form-control" name="tentheloai" placeholder="Tên thể loại" />
+				                            <select id="estatus" class="form-control" name="status">
+				                            	<option value="1">Active</option>
+  												<option value="0">Inactive</option>
+				                            </select>
+				                        </div>
+				                    </div>
+				                </div>
 			                 
                         </div>
                         <div class="clearfix"></div>
@@ -330,6 +340,94 @@
                     </div>
             </div>
 			<!--  Delete modal -->
+			<!-- View modal -->
+           <div class="modal fade bs-example-modal-lg" id="modal-view" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-delete">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Thông tin sách: </h4>
+                        </div>
+                        
+                        <div class="modal-body">
+                        	
+                          	 <div class='col-sm-12'>
+				                   <label >Tên sách :</label>
+				                    <div class="form-group" >
+				                        <div class="form-group" >
+				                            <input type="text" id="vname" class="form-control" name="tensach" placeholder="Tên sách" />
+				                            
+				                        </div>
+				                    </div>
+				                </div>
+			                 <div class='col-sm-12'>
+				                    <label >Thể loại :</label>
+				                    <div class="form-group">
+				                        <div class="form-group" >
+				                            <input type="text" id="vcate" class="form-control" name="tentheloai" placeholder="Tên sách" />
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class='col-sm-12'>
+				                    <label >Số trang :</label>
+				                    <div class="form-group">
+				                        <div class="form-group" >
+				                            <input type="number" id="vpage" class="form-control" name="sotrang" placeholder="Số trang" />
+				                            
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class='col-sm-12'>
+				                    <label >Số lượng :</label>
+				                    <div class="form-group">
+				                        <div class="form-group" >
+				                            <input type="number" id="vnumber" class="form-control" name="soluong" placeholder="Số lượng sách" />
+				                            
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class='col-sm-12'>
+				                    <label >Tác giả :</label>
+				                    <div class="form-group">
+				                        <div class="form-group" >
+				                            <input type="text" id="vauthor" class="form-control" name="tacgia" placeholder="Tác giả" />
+				                            
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class='col-sm-12'>
+				                    <label >Năm xuất bản :</label>
+				                    <div class="form-group">
+				                        <div class="form-group" >
+				                            <input type="number" id="vyear" class="form-control" name="namxb" placeholder="Năm xuất bản" />
+				                            
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class='col-sm-12'>
+				                    <label >Nhà xuất bản :</label>
+				                    <div class="form-group">
+				                        <div class="form-group" >
+				                            <input type="text" id="vnxb" class="form-control" name="nxb" placeholder="Nhà xuất bản" />
+				                            
+				                        </div>
+				                    </div>
+				                </div>
+			                 
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                         
+                        </div>
+                    	
+                      </div>
+                    </div>
+            </div>
+			<!--  View  modal -->
 
         	<script type="text/javascript">
 			    function pass_del(id) {
@@ -346,6 +444,16 @@
 			    	document.getElementById("eyear").value = nam; 
 			    	document.getElementById("enxb").value = nxb; 
 			    	
+			    };
+				function pass_view(ten,theloai,tacgia,sotrang,soluong,nam,nxb) {
+					document.getElementById("vname").value = ten; 
+			    	document.getElementById("vcate").value = theloai; 
+			    	document.getElementById("vauthor").value = tacgia; 
+			    	document.getElementById("vpage").value = sotrang; 
+			    	document.getElementById("vnumber").value = soluong; 
+			    	document.getElementById("vyear").value = nam; 
+			    	document.getElementById("vnxb").value = nxb; 
+			    	$("#modal-view").modal();
 			    };
 			    
 			</script>
